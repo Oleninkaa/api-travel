@@ -109,6 +109,12 @@ button[type="submit"]:hover {
 
 
 /* Загальні стилі для кнопок */
+
+.actions{
+    display: flex;
+    flex-direction: column;
+ 
+}
 .btn {
     padding: 5px 10px;
     color: #ffffff;
@@ -122,6 +128,7 @@ button[type="submit"]:hover {
 .edit-btn {
     background-color: #4CAF50; /* Зелений для редагування */
     border: none;
+    margin-bottom: 40px;
 }
 
 .delete-btn {

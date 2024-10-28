@@ -34,17 +34,31 @@ const createProduct = async (req, res) => {
 const updateProduct = async (req, res) => {
     try {
         const { id } = req.params;
-        const product = await Product.findByIdAndUpdate(id, req.body)
+        const { country, place, price, date } = req.body;
+        const updatedProduct = await Product.findByIdAndUpdate(id, { country, place, price, date }, { new: true });
 
-        if(!product){
-            res.status(404).json({message:"Prosuct not found"})
+        if (!updatedProduct) {
+            return res.status(404).json({ message: "Product not found" });
         }
 
-        const updatedProduct = await Product.findById(id);
-        res.status(200).json(updatedProduct)
-
+        res.redirect('/trips'); // Повертаємось до списку після оновлення
     } catch (error) {
-        res.status(500).json({message:error.message})
+        res.status(500).json({ message: error.message });
+    }
+}
+
+const editProductForm  = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const product = await Product.findById(id);
+        
+        if (!product) {
+            return res.status(404).json({ message: "Product not found" });
+        }
+
+        res.render('editProduct', { product });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
     }
 }
 
@@ -58,7 +72,7 @@ const deleteProduct = async (req, res) => {
         }
 
         
-        res.status(200).json("Deleted successfully")
+        res.redirect('/trips')
 
     } catch (error) {
         res.status(500).json({message:error.message})
@@ -71,5 +85,6 @@ module.exports = {
     getProduct,
     createProduct,
     updateProduct,
-    deleteProduct
+    deleteProduct,
+    editProductForm
 }
