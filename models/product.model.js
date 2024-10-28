@@ -1,18 +1,17 @@
 
 const mongoose = require('mongoose');
 
-const ProductSchema = mongoose.Schema(
+const TripSchema = mongoose.Schema(
     {
 
-        name:{
+        country:{
             type: String,
-            required: [true, "Product name is required"],
+            required: [true, "country name is required"],
         },
 
-        quantity:{
-            type: Number,
-            required: [true, "quantity is required"],
-            default: 0,
+        place:{
+            type: String,
+            required: [true, "place is required"],
         },
 
         price:{
@@ -21,9 +20,9 @@ const ProductSchema = mongoose.Schema(
             default: 0,
         },
 
-        color:{
-            type: String,
-            required: false,
+        date:{
+            type: Date,
+            required: [true, "date is required"],
         }
 
     },
@@ -36,6 +35,6 @@ const ProductSchema = mongoose.Schema(
 );
 
 
-const Product = mongoose.model("Product", ProductSchema)
+const Trip = mongoose.model("Trip", TripSchema)
 
-module.exports = Product;
+module.exports = Trip;
