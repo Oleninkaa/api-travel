@@ -1,0 +1,33 @@
+<!-- views/trips.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="/table.css">
+</head>
+<body>
+    <h1>Trips List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>country</th>
+                <th>place</th>
+                <th>price</th>
+                <th>date</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% products.forEach(product => { %>
+                <tr class="red">
+                    <td><%= product.country %></td>
+                    <td><%= product.place %></td>
+                    <td><%= product.price %></td>
+                    <td><%= product.date %></td>
+                </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</body>
+</html>

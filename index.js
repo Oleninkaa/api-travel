@@ -4,6 +4,11 @@ const mongoose = require('mongoose');
 const app = express()
 const Product = require('./models/product.model.js');
 const productRoute = require('./routes/product.route.js');
+const path = require('path');
+
+
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 
 
@@ -13,10 +18,10 @@ app.use(express.json());
 app.use(express.urlencoded({extended:false}));
 
 //routes
-app.use("/api/products", productRoute)
+app.use("/trips", productRoute)
 
 app.get('/', (req, res) => {
-    res.send('Online shop');
+    res.sendFile(path.join(__dirname + '/public/index.html'))
 });
 
 

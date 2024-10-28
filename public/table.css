@@ -1,0 +1,59 @@
+/* Загальні стилі */
+
+
+:root {
+    --light: #ffffff;
+    --dark:  rgb(57, 47, 47);
+    --back:  rgb(78, 73, 73);
+  }
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--back);
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    color: var(--light);
+    margin-top: 20px;
+    font-size: 2em;
+}
+
+/* Стиль таблиці */
+table {
+    width: 90%;
+    margin: 30px auto;
+    border-collapse: collapse;
+    background-color: #fef3dc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #dddddd;
+    text-align: center;
+    font-size: 1em;
+}
+
+th {
+    background-color: var(--dark);
+    color: #ffffff;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #d1c7b3;
+    cursor: pointer;
+}
+
+/* Спеціальний клас для рядків з червоним кольором */
+tr.red {
+    color: var(--dark);
+    font-weight: bold;
+}
