@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Products</title>
+    <title>Trips List</title>
     <link rel="stylesheet" href="/table.css">
 </head>
 <body>
@@ -12,19 +12,29 @@
     <table>
         <thead>
             <tr>
-                <th>country</th>
-                <th>place</th>
-                <th>price</th>
-                <th>date</th>
+                <th>Country</th>
+                <th>Place</th>
+                <th>Price</th>
+                <th>Date</th>
+                <th>Actions</th> <!-- Новий стовпець для кнопок -->
             </tr>
         </thead>
         <tbody>
             <% products.forEach(product => { %>
-                <tr class="red">
+                <tr>
                     <td><%= product.country %></td>
                     <td><%= product.place %></td>
                     <td><%= product.price %></td>
                     <td><%= product.date %></td>
+                    <td>
+                        <!-- Кнопка редагування -->
+                        <a href="/trips/edit/<%= product._id %>" class="btn edit-btn">Edit</a>
+
+                        <!-- Кнопка видалення -->
+                        <form action="/trips/delete/<%= product._id %>" method="POST" style="display:inline;">
+                            <button type="submit" class="btn delete-btn">Delete</button>
+                        </form>
+                    </td>
                 </tr>
             <% }); %>
         </tbody>

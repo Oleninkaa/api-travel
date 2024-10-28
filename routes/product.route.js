@@ -6,9 +6,18 @@ const {getProducts, getProduct, createProduct, updateProduct, deleteProduct} = r
 
 router.get('/', getProducts);
 
+router.get('/add', (req, res) => {
+    res.render('addProduct'); // Відображає шаблон форми додавання
+});
+
+router.post('/add', createProduct);
+
+
+
+
 router.get('/:id', getProduct);
 
-router.post('/', createProduct);
+
 
 router.put('/:id', updateProduct);
 
