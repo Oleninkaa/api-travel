@@ -5,20 +5,13 @@ const {getProducts, getProduct, createProduct, updateProduct, deleteProduct, edi
 
 
 router.get('/', getProducts);
-
 router.get('/add', (req, res) => {
-    res.render('addProduct'); // Відображає шаблон форми додавання
+    res.render('addProduct');
 });
-
 router.post('/add', createProduct);
-
 router.delete('/delete/:id', deleteProduct);
-
 router.post('/edit/:id', updateProduct);
-
 router.get('/edit/:id', editProductForm);
-
-
 router.delete('/delete/:id', deleteProduct);
 
 
