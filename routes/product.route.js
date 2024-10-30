@@ -10,8 +10,11 @@ router.get('/add', (req, res) => {
 });
 router.post('/add', createProduct);
 router.delete('/delete/:id', deleteProduct);
-router.post('/edit/:id', updateProduct);
+
+
 router.get('/edit/:id', editProductForm);
+router.post('/edit/:id', updateProduct);
+
 router.delete('/delete/:id', deleteProduct);
 
 
